@@ -1,0 +1,290 @@
+body {
+	background-color: #b6f5b6;
+	font-family: "Times New Roman", Times, serif;
+	color: #333;
+	margin: 0px;
+	padding: 8px;
+}
+
+[hidden] { display: none !important; }
+
+h1 {
+	font-family: "Comic Sans MS", cursive;
+	font-size: 42px;
+	color: #ff00ff;
+	text-align: center;
+	margin: 5px;
+	text-shadow: 2px 2px 0px #00ffff;
+}
+
+.tagline {
+	font-size: 11px;
+	color: #999900;
+	text-align: center;
+	margin-bottom: 25px;
+}
+
+.card {
+	background-color: #ffffff;
+	border: 4px solid #ff00ff;
+	padding: 12px;
+}
+
+/* login */
+
+.auth {
+	display: grid;
+	padding: 30px 4px 4px 4px;
+}
+
+.auth-card {
+	text-align: center;
+}
+
+label {
+	display: block;
+	font-size: 10px;
+	text-transform: uppercase;
+	font-weight: bold;
+	color: #0000cc;
+	margin-bottom: 1px;
+	text-align: left;
+}
+
+input[type="text"], input[type="email"], input[type="password"], input[type="datetime-local"] {
+	width: 100%;
+	padding: 3px;
+	font-family: "Times New Roman", Times, serif;
+	font-size: 17px;
+	border: 2px inset #999;
+	margin-bottom: 14px;
+}
+
+button {
+	font-family: "Comic Sans MS", cursive;
+	cursor: pointer;
+}
+
+.primary {
+	background-color: #ff00ff;
+	color: #ffff00;
+	border: 3px outset #cc00cc;
+	padding: 4px 30px;
+	font-size: 22px;
+	font-weight: bold;
+	margin-top: 18px;
+	text-shadow: 1px 1px 0px #000000;
+}
+
+.link {
+	background: none;
+	border: none;
+	color: #ff0000;
+	font-size: 15px;
+	text-decoration: underline;
+	padding: 0px;
+}
+
+.switch {
+	font-size: 12px;
+	margin-top: 6px;
+	text-align: center;
+}
+
+.error {
+	color: #ff0000;
+	background-color: #ffff99;
+	border: 2px dotted #ff0000;
+	font-weight: bold;
+	font-size: 13px;
+	padding: 2px;
+	margin: 4px 0px;
+	text-align: center;
+}
+
+.test-login {
+	display: block;
+	margin-top: 22px;
+	text-align: center;
+}
+
+.test-login button {
+	background-color: #cccccc;
+	border: 2px outset #eeeeee;
+	font-size: 11px;
+	padding: 2px 6px;
+}
+
+.dev-badge {
+	background-color: #ff0000;
+	color: #ffffff;
+	font-size: 9px;
+	font-weight: bold;
+	padding: 1px 3px;
+	font-family: "Comic Sans MS", cursive;
+}
+
+/* app shell */
+
+.topbar {
+	background-color: #00ffff;
+	border-bottom: 5px ridge #ff00ff;
+	padding: 2px;
+	text-align: center;
+}
+
+.topbar h1 {
+	font-size: 26px;
+	display: inline-block;
+	margin-right: 20px;
+}
+
+.tabs {
+	display: inline-block;
+}
+
+.tab {
+	background-color: #dddddd;
+	border: 2px outset #ffffff;
+	font-size: 14px;
+	padding: 2px 8px;
+	color: #000099;
+}
+
+.tab.active {
+	background-color: #ffff00;
+	border: 2px inset #cccc00;
+	font-weight: bold;
+}
+
+.badge {
+	display: inline-block;
+	background-color: #ff0000;
+	color: #ffffff;
+	font-size: 11px;
+	padding: 0px 3px;
+	border: 1px solid #000000;
+}
+
+.account {
+	display: inline-block;
+	font-size: 12px;
+	color: #660066;
+	margin-left: 15px;
+}
+
+main {
+	padding: 6px;
+}
+
+.hint {
+	font-size: 12px;
+	font-style: italic;
+	color: #008800;
+	text-align: center;
+	margin-bottom: 4px;
+}
+
+.empty {
+	text-align: center;
+	font-size: 20px;
+	color: #aaaaaa;
+	font-family: "Comic Sans MS", cursive;
+	padding: 8px;
+}
+
+/* add-note form */
+
+.note-form {
+	background-color: #ffffcc;
+	border: 4px solid #ff00ff;
+	padding: 6px;
+	margin-bottom: 20px;
+	text-align: center;
+}
+
+.field {
+	margin-bottom: 2px;
+}
+
+/* notes */
+
+.notes {
+	list-style-type: square;
+	margin: 0px;
+	padding-left: 30px;
+}
+
+.note {
+	background-color: #ffffff;
+	border: 3px dashed #00cccc;
+	padding: 3px;
+	margin-bottom: 9px;
+	overflow: hidden;
+}
+
+.note input[type="checkbox"] {
+	float: left;
+	margin-right: 10px;
+	margin-top: 6px;
+}
+
+.note-main {
+	display: inline;
+}
+
+.note-text {
+	font-size: 19px;
+	font-weight: bold;
+	color: #000066;
+	margin-right: 8px;
+}
+
+.note-meta {
+	font-size: 11px;
+	color: #888888;
+	font-style: italic;
+}
+
+.note-right {
+	float: right;
+}
+
+.relative {
+	font-size: 13px;
+	color: #cc6600;
+	font-weight: bold;
+	margin-right: 6px;
+}
+
+.delete {
+	background-color: #ff0000;
+	color: #ffffff;
+	border: 2px outset #cc0000;
+	font-size: 13px;
+	font-weight: bold;
+	padding: 0px 5px;
+}
+
+.note.alarmed {
+	background-color: #ff0000;
+	border: 3px solid #000000;
+}
+
+.note.alarmed .note-text {
+	color: #ffff00;
+	text-shadow: 1px 1px 0px #000000;
+}
+
+.note.alarmed .note-meta, .note.alarmed .relative {
+	color: #ffffff;
+}
+
+.note.done {
+	background-color: #eeeeee;
+}
+
+.note.done .note-text {
+	text-decoration: line-through;
+	color: #999999;
+}

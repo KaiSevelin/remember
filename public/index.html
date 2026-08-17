@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Remember</title>
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⏰</text></svg>">
+</head>
+<body>
+
+  <!-- View 1: login -->
+  <section id="view-login" class="view auth">
+    <form id="auth-form" class="card auth-card">
+      <h1 class="logo">⏰ Remember</h1>
+      <p class="tagline" id="auth-tagline">Sign in to see what you owe your future self.</p>
+
+      <label for="email">Email</label>
+      <input id="email" name="email" type="email" autocomplete="email" required placeholder="you@example.com">
+
+      <label for="password">Password</label>
+      <input id="password" name="password" type="password" autocomplete="current-password" required
+             placeholder="At least 8 characters" minlength="8">
+
+      <p class="error" id="auth-error" hidden></p>
+
+      <button class="primary" type="submit" id="auth-submit">Sign in</button>
+      <p class="switch">
+        <span id="switch-text">No account yet?</span>
+        <button type="button" class="link" id="switch-mode">Create one</button>
+      </p>
+
+      <div id="test-login-box" class="test-login" hidden>
+        <span class="dev-badge">dev only</span>
+        <button type="button" id="test-login">Skip login — use the demo account</button>
+      </div>
+    </form>
+  </section>
+
+  <!-- Views 2 & 3 share the app shell -->
+  <div id="app-shell" hidden>
+    <header class="topbar">
+      <h1 class="logo">⏰ Remember</h1>
+      <nav class="tabs">
+        <button class="tab" data-view="notes">All notes</button>
+        <button class="tab" data-view="due">Due soon <span class="badge" id="alarm-count" hidden>0</span></button>
+      </nav>
+      <div class="account">
+        <span id="account-email"></span>
+        <button class="link" id="logout">Sign out</button>
+      </div>
+    </header>
+
+    <main>
+      <!-- View 2: all notes -->
+      <section id="view-notes" class="view">
+        <form id="note-form" class="card note-form">
+          <div class="field grow">
+            <label for="note-text">What should you remember?</label>
+            <input id="note-text" type="text" required maxlength="500" placeholder="Renew the passport">
+          </div>
+          <div class="field">
+            <label for="note-alarm">Alarm when not done by</label>
+            <input id="note-alarm" type="datetime-local" required>
+          </div>
+          <button class="primary" type="submit">Add note</button>
+        </form>
+        <p class="error" id="note-error" hidden></p>
+
+        <ul class="notes" id="notes-list"></ul>
+        <p class="empty" id="notes-empty" hidden>Nothing here yet. Add your first note above.</p>
+      </section>
+
+      <!-- View 3: due soon -->
+      <section id="view-due" class="view" hidden>
+        <p class="hint">Sorted by alarm time — soonest first. Overdue notes are in red.</p>
+        <ul class="notes" id="due-list"></ul>
+        <p class="empty" id="due-empty" hidden>Nothing pending. Enjoy the quiet.</p>
+      </section>
+    </main>
+  </div>
+
+  <script type="module" src="/app.js"></script>
+</body>
+</html>

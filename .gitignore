@@ -1,0 +1,14 @@
+# SQLite database — contains real accounts and password hashes, never commit it
+remember.db
+remember.db-shm
+remember.db-wal
+*.db
+*.db-shm
+*.db-wal
+
+node_modules/
+.env
+
+# OS cruft
+Thumbs.db
+.DS_Store

@@ -1,0 +1,14 @@
+{
+  "name": "remember",
+  "version": "1.0.0",
+  "description": "A tiny single-page app for remembering things, with alarms for overdue notes",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node --no-warnings server.js",
+    "dev": "node --no-warnings --watch server.js --dev"
+  },
+  "engines": {
+    "node": ">=22.5.0"
+  }
+}

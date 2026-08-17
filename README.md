@@ -20,6 +20,22 @@ Then open <http://localhost:3000>. The database file `remember.db` is created on
 
 Environment overrides: `PORT` (default `3000`), `DB_FILE` (default `remember.db`).
 
+## Running it on another machine
+
+Clone and run — there is nothing to install, because there are no dependencies.
+
+The one requirement is **Node 24**, which is what this is built and tested against.
+`node:sqlite` is what makes the zero-dependency setup possible, and older releases either
+lack it or keep it behind `--experimental-sqlite`. If `npm start` fails with
+`Cannot find module 'node:sqlite'`, the Node version is too old.
+
+**The database is deliberately not committed**, and you don't need it. The schema is
+created on first run, and the demo notes are seeded on first use of the test login,
+timed relative to *that moment* — so you always get two overdue notes and three upcoming
+ones. A committed database would carry frozen timestamps that drift into the past, and
+every note would eventually render red, which is exactly the distinction the demo relies
+on. Deleting `remember.db` to get a clean demo is a feature.
+
 ## Dev mode and the test login
 
 ```sh

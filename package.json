@@ -6,7 +6,8 @@
   "main": "server.js",
   "scripts": {
     "start": "node --no-warnings server.js",
-    "dev": "node --no-warnings --watch server.js --dev"
+    "dev": "node --no-warnings --watch server.js --dev",
+    "ds:bundle": "node --no-warnings tools/bundle-design-system.mjs"
   },
   "engines": {
     "node": ">=24.0.0"

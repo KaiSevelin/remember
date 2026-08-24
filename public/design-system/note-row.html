@@ -1,0 +1,117 @@
+<!-- @dsCard group="Components" name="Note row" -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Note row</title>
+<link rel="stylesheet" href="/styles.css">
+<link rel="stylesheet" href="/design-system/_harness.css">
+</head>
+<body>
+<div class="ds">
+
+  <p class="ds-note">The core component. A note is alarmed when it is not done and its alarm
+  time has passed — the red state is a product rule, not styling preference.</p>
+
+  <div class="ds-item">
+    <span class="ds-label">.note — default, not yet due</span>
+    <ul class="notes">
+      <li class="note">
+        <input type="checkbox">
+        <div class="note-main">
+          <span class="note-text">Renew the passport</span>
+          <span class="note-meta">Due Mon 7 Sep, 13:58</span>
+        </div>
+        <div class="note-right">
+          <button class="delete" type="button" aria-label="Delete note">✕</button>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="ds-item">
+    <span class="ds-label">.note — with a relative countdown, shown in the Due soon view</span>
+    <ul class="notes">
+      <li class="note">
+        <input type="checkbox">
+        <div class="note-main">
+          <span class="note-text">Take the bins out</span>
+          <span class="note-meta">Due Mon 17 Aug, 18:58</span>
+        </div>
+        <div class="note-right">
+          <span class="relative">in 5 hours</span>
+          <button class="delete" type="button" aria-label="Delete note">✕</button>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="ds-item">
+    <span class="ds-label">.note.alarmed — overdue and not done</span>
+    <ul class="notes">
+      <li class="note alarmed">
+        <input type="checkbox">
+        <div class="note-main">
+          <span class="note-text">Pay the parking fine</span>
+          <span class="note-meta">Alarmed · was due Sun 16 Aug, 07:58</span>
+        </div>
+        <div class="note-right">
+          <span class="relative">yesterday</span>
+          <button class="delete" type="button" aria-label="Delete note">✕</button>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="ds-item">
+    <span class="ds-label">.note.done — completed, recedes</span>
+    <ul class="notes">
+      <li class="note done">
+        <input type="checkbox" checked>
+        <div class="note-main">
+          <span class="note-text">Reply to Sam about the lease</span>
+          <span class="note-meta">Done · was due Mon 17 Aug, 11:58</span>
+        </div>
+        <div class="note-right">
+          <button class="delete" type="button" aria-label="Delete note">✕</button>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="ds-item">
+    <span class="ds-label">.notes — a full list, as it appears in the app</span>
+    <ul class="notes">
+      <li class="note alarmed">
+        <input type="checkbox">
+        <div class="note-main">
+          <span class="note-text">Pay the parking fine</span>
+          <span class="note-meta">Alarmed · was due Sun 16 Aug, 07:58</span>
+        </div>
+        <div class="note-right"><span class="relative">yesterday</span>
+          <button class="delete" type="button" aria-label="Delete note">✕</button></div>
+      </li>
+      <li class="note">
+        <input type="checkbox">
+        <div class="note-main">
+          <span class="note-text">Book a dentist appointment</span>
+          <span class="note-meta">Due Wed 19 Aug, 13:58</span>
+        </div>
+        <div class="note-right"><span class="relative">tomorrow</span>
+          <button class="delete" type="button" aria-label="Delete note">✕</button></div>
+      </li>
+      <li class="note done">
+        <input type="checkbox" checked>
+        <div class="note-main">
+          <span class="note-text">Reply to Sam about the lease</span>
+          <span class="note-meta">Done · was due Mon 17 Aug, 11:58</span>
+        </div>
+        <div class="note-right">
+          <button class="delete" type="button" aria-label="Delete note">✕</button></div>
+      </li>
+    </ul>
+  </div>
+
+</div>
+</body>
+</html>

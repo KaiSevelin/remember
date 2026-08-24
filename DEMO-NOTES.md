@@ -57,6 +57,63 @@ If a redesign breaks any of these, it has gone too far.
 - The `.done`, `.alarmed` and `.tab.active` states must stay visually distinct.
 - The `dev only` badge should stay visibly a warning, not decoration.
 
+## The component library
+
+Eight preview cards live in [public/design-system/](public/design-system/), with a gallery
+at **http://localhost:3000/design-system/** that shows all of them on one page.
+
+| Card | Group | Covers |
+| --- | --- | --- |
+| Type scale | Type | `.logo`, `.tagline`, `.note-text`, `.note-meta`, `label`, `.hint`, `.empty` |
+| Semantic colour | Colors | danger / accent / default / muted, shown as real states |
+| Note row | Components | `.note` default, countdown, `.alarmed`, `.done`, full list |
+| Buttons | Components | `.primary`, `.link`, `.tab`, `.delete`, dev-only button |
+| Form fields | Components | all four input types, plus a field with an error |
+| Navigation | Components | `.topbar`, `.tabs`, `.badge` |
+| Panels | Components | `.card.auth-card`, `.card.note-form` |
+| Feedback | Components | `.error`, `.empty`, `.hint`, `.dev-badge` |
+
+**The cards restyle themselves.** Each preview links to the live `/styles.css` rather than
+copying it, so redesigning the app redesigns the library in the same breath. There is no
+regeneration step and nothing goes stale mid-demo.
+
+The Colors card deliberately shows *states* rather than hex swatches — an alarmed row, an
+error, a primary button — so it stays correct through any restyle, and it doubles as the
+"red means overdue, not `#ff0000`" story.
+
+To push to a Claude Design project, first make the previews self-contained (an uploaded
+card has no server to resolve `/styles.css` against):
+
+```sh
+npm run ds:bundle      # writes dist/design-system/*.html with the CSS inlined
+```
+
+Then sync from `dist/design-system/`. Re-run the bundle after any restyle so the uploaded
+cards match what is on screen.
+
+## Running the demo
+
+**Move 1 — the restyle.** Paste:
+
+> Redesign the stylesheet: type scale, spacing system, semantic colour tokens, focus
+> states, dark mode. Keep alarmed notes red. Keep every existing class name. Don't change
+> the HTML or JS.
+
+*"Keep every existing class name" is not optional.* The previews and the app both select on
+`.note`, `.primary`, `.tab` and friends. If a redesign renames them, the app keeps working
+(it sets those classes in JS) but every card in the library goes unstyled.
+
+Reload the app, then flip the OS to dark mode.
+
+**Move 2 — the system.** Open the gallery. Same eight cards, now wearing the new design,
+without anyone regenerating them. Run `npm run ds:bundle` and sync.
+
+**Move 3 — the payoff.** Paste:
+
+> Add a priority chip to each note — low, medium, high — using the existing tokens.
+
+No colours named; it should come out matching. This is the beat that makes the case.
+
 ## Verifying a redesign
 
 The headless browser checks used while building this live in the scratchpad and exercise

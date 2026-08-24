@@ -1,0 +1,47 @@
+<!-- @dsCard group="Components" name="Panels" -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Panels</title>
+<link rel="stylesheet" href="/styles.css">
+<link rel="stylesheet" href="/design-system/_harness.css">
+</head>
+<body>
+<div class="ds">
+
+  <div class="ds-item">
+    <span class="ds-label">.card.auth-card — the sign-in panel</span>
+    <form class="card auth-card">
+      <h1 class="logo">⏰ Remember</h1>
+      <p class="tagline">Sign in to see what you owe your future self.</p>
+      <label for="p1">Email</label>
+      <input id="p1" type="email" placeholder="you@example.com">
+      <label for="p2">Password</label>
+      <input id="p2" type="password" placeholder="At least 8 characters">
+      <button class="primary" type="button">Sign in</button>
+      <p class="switch">
+        <span>No account yet?</span>
+        <button type="button" class="link">Create one</button>
+      </p>
+    </form>
+  </div>
+
+  <div class="ds-item">
+    <span class="ds-label">.card.note-form — the add-note panel</span>
+    <form class="card note-form">
+      <div class="field grow">
+        <label for="p3">What should you remember?</label>
+        <input id="p3" type="text" placeholder="Renew the passport">
+      </div>
+      <div class="field">
+        <label for="p4">Alarm when not done by</label>
+        <input id="p4" type="datetime-local" value="2026-09-07T13:58">
+      </div>
+      <button class="primary" type="button">Add note</button>
+    </form>
+  </div>
+
+</div>
+</body>
+</html>

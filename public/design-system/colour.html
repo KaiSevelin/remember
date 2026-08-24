@@ -1,0 +1,73 @@
+<!-- @dsCard group="Colors" name="Semantic colour" -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Semantic colour</title>
+<link rel="stylesheet" href="/styles.css">
+<link rel="stylesheet" href="/design-system/_harness.css">
+</head>
+<body>
+<div class="ds">
+
+  <p class="ds-note">Colour carries meaning here, it is not decoration. "Overdue" is red because
+  the product says overdue notes must be red — so danger is a role, not a hex value.</p>
+
+  <div class="ds-item">
+    <span class="ds-label">danger — an alarmed note, an error, a destructive action</span>
+    <ul class="notes">
+      <li class="note alarmed">
+        <input type="checkbox">
+        <div class="note-main">
+          <span class="note-text">Pay the parking fine</span>
+          <span class="note-meta">Alarmed · was due Sun 16 Aug, 07:58</span>
+        </div>
+        <div class="note-right"><button class="delete" type="button">✕</button></div>
+      </li>
+    </ul>
+    <p class="error">Pick a valid alarm date and time.</p>
+    <div class="ds-inline">
+      <span class="badge">2</span>
+      <span class="dev-badge">dev only</span>
+      <button class="delete" type="button">✕</button>
+    </div>
+  </div>
+
+  <div class="ds-item">
+    <span class="ds-label">accent — the primary action</span>
+    <div class="ds-inline">
+      <button class="primary" type="button">Add note</button>
+      <button class="link" type="button">Create one</button>
+    </div>
+  </div>
+
+  <div class="ds-item">
+    <span class="ds-label">default — a note that is not yet due</span>
+    <ul class="notes">
+      <li class="note">
+        <input type="checkbox">
+        <div class="note-main">
+          <span class="note-text">Take the bins out</span>
+          <span class="note-meta">Due Mon 17 Aug, 18:58</span>
+        </div>
+        <div class="note-right"><span class="relative">in 5 hours</span></div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="ds-item">
+    <span class="ds-label">muted — a note that is done and no longer needs attention</span>
+    <ul class="notes">
+      <li class="note done">
+        <input type="checkbox" checked>
+        <div class="note-main">
+          <span class="note-text">Reply to Sam about the lease</span>
+          <span class="note-meta">Done · was due Mon 17 Aug, 11:58</span>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+</div>
+</body>
+</html>

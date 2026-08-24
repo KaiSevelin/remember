@@ -1,0 +1,47 @@
+<!-- @dsCard group="Components" name="Navigation" -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Navigation</title>
+<link rel="stylesheet" href="/styles.css">
+<link rel="stylesheet" href="/design-system/_harness.css">
+</head>
+<body>
+<div class="ds">
+
+  <div class="ds-item">
+    <span class="ds-label">.topbar — the full application header</span>
+    <header class="topbar">
+      <h1 class="logo">⏰ Remember</h1>
+      <nav class="tabs">
+        <button class="tab active" type="button">All notes</button>
+        <button class="tab" type="button">Due soon <span class="badge">2</span></button>
+      </nav>
+      <div class="account">
+        <span>demo@example.com</span>
+        <button class="link" type="button">Sign out</button>
+      </div>
+    </header>
+  </div>
+
+  <div class="ds-item">
+    <span class="ds-label">.tabs — the two states</span>
+    <nav class="tabs">
+      <button class="tab active" type="button">All notes</button>
+      <button class="tab" type="button">Due soon</button>
+    </nav>
+  </div>
+
+  <div class="ds-item">
+    <span class="ds-label">.badge — a count of things needing attention, hidden at zero</span>
+    <div class="ds-inline">
+      <span class="badge">1</span>
+      <span class="badge">2</span>
+      <span class="badge">12</span>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

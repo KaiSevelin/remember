@@ -1,0 +1,32 @@
+/* Preview harness only — never part of the product's design system.
+   Everything is namespaced .ds-* so it cannot collide with app styles. */
+
+.ds {
+  padding: 18px;
+  display: grid;
+  gap: 16px;
+  align-content: start;
+}
+
+.ds-item {
+  display: grid;
+  gap: 6px;
+}
+
+.ds-label {
+  font: 600 11px/1.4 ui-monospace, "Cascadia Mono", Consolas, monospace;
+  opacity: 0.6;
+}
+
+.ds-inline {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.ds-note {
+  font: italic 12px/1.5 system-ui, sans-serif;
+  opacity: 0.7;
+  margin: 0;
+}

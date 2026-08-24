@@ -172,7 +172,8 @@ async function handleApi(req, res, url) {
 /* ------------------------------------------------------------ static files */
 
 async function serveStatic(req, res, url) {
-  const requested = url.pathname === '/' ? '/index.html' : url.pathname;
+  // A trailing slash means a directory — serve its index.html ("/" included).
+  const requested = url.pathname.endsWith('/') ? `${url.pathname}index.html` : url.pathname;
   const filePath = join(PUBLIC_DIR, normalize(requested).replace(/^[\\/]+/, ''));
 
   if (!filePath.startsWith(PUBLIC_DIR)) return send(res, 403, 'Forbidden', { 'Content-Type': 'text/plain' });

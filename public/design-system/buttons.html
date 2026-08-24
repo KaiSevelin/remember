@@ -1,0 +1,55 @@
+<!-- @dsCard group="Components" name="Buttons" -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Buttons</title>
+<link rel="stylesheet" href="/styles.css">
+<link rel="stylesheet" href="/design-system/_harness.css">
+</head>
+<body>
+<div class="ds">
+
+  <div class="ds-item">
+    <span class="ds-label">.primary — one per view, the main action</span>
+    <div class="ds-inline">
+      <button class="primary" type="button">Add note</button>
+      <button class="primary" type="button">Sign in</button>
+      <button class="primary" type="button" disabled>Signing in…</button>
+    </div>
+  </div>
+
+  <div class="ds-item">
+    <span class="ds-label">.link — a secondary action that reads as text</span>
+    <div class="ds-inline">
+      <button class="link" type="button">Create one</button>
+      <button class="link" type="button">Sign out</button>
+    </div>
+  </div>
+
+  <div class="ds-item">
+    <span class="ds-label">.tab — view switching, with .active for the current view</span>
+    <nav class="tabs">
+      <button class="tab active" type="button">All notes</button>
+      <button class="tab" type="button">Due soon <span class="badge">2</span></button>
+    </nav>
+  </div>
+
+  <div class="ds-item">
+    <span class="ds-label">.delete — destructive, icon only, always labelled for screen readers</span>
+    <div class="ds-inline">
+      <button class="delete" type="button" aria-label="Delete note">✕</button>
+    </div>
+  </div>
+
+  <div class="ds-item">
+    <span class="ds-label">.test-login button — a development-only affordance</span>
+    <div class="test-login">
+      <span class="dev-badge">dev only</span>
+      <button type="button">Skip login — use the demo account</button>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

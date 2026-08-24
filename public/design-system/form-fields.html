@@ -1,0 +1,64 @@
+<!-- @dsCard group="Components" name="Form fields" -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Form fields</title>
+<link rel="stylesheet" href="/styles.css">
+<link rel="stylesheet" href="/design-system/_harness.css">
+</head>
+<body>
+<div class="ds">
+
+  <div class="ds-item">
+    <span class="ds-label">text — with placeholder</span>
+    <div class="field grow">
+      <label for="f1">What should you remember?</label>
+      <input id="f1" type="text" placeholder="Renew the passport">
+    </div>
+  </div>
+
+  <div class="ds-item">
+    <span class="ds-label">text — filled</span>
+    <div class="field grow">
+      <label for="f2">What should you remember?</label>
+      <input id="f2" type="text" value="Book a dentist appointment">
+    </div>
+  </div>
+
+  <div class="ds-item">
+    <span class="ds-label">email</span>
+    <div class="field grow">
+      <label for="f3">Email</label>
+      <input id="f3" type="email" placeholder="you@example.com">
+    </div>
+  </div>
+
+  <div class="ds-item">
+    <span class="ds-label">password</span>
+    <div class="field grow">
+      <label for="f4">Password</label>
+      <input id="f4" type="password" placeholder="At least 8 characters">
+    </div>
+  </div>
+
+  <div class="ds-item">
+    <span class="ds-label">datetime-local — when the note should alarm</span>
+    <div class="field">
+      <label for="f5">Alarm when not done by</label>
+      <input id="f5" type="datetime-local" value="2026-09-07T13:58">
+    </div>
+  </div>
+
+  <div class="ds-item">
+    <span class="ds-label">field with an error message</span>
+    <div class="field grow">
+      <label for="f6">What should you remember?</label>
+      <input id="f6" type="text" value="">
+      <p class="error">The note needs some text.</p>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

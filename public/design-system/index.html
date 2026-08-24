@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Remember — component library</title>
+<style>
+  body {
+    margin: 0;
+    padding: 24px;
+    background: #16181d;
+    color: #e6e8eb;
+    font: 15px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  }
+  h1 { font-size: 1.25rem; margin: 0 0 4px; }
+  p.lede { margin: 0 0 24px; opacity: 0.7; font-size: 0.9rem; }
+  .grid { display: grid; gap: 20px; grid-template-columns: repeat(auto-fill, minmax(380px, 1fr)); }
+  figure { margin: 0; border: 1px solid #2b303a; border-radius: 10px; overflow: hidden; background: #1c1f25; }
+  figcaption {
+    display: flex; justify-content: space-between; align-items: baseline; gap: 10px;
+    padding: 10px 12px; border-bottom: 1px solid #2b303a; font-size: 0.85rem;
+  }
+  figcaption a { color: inherit; font-weight: 600; text-decoration: none; }
+  figcaption a:hover { text-decoration: underline; }
+  .group { font: 600 10px/1 ui-monospace, Consolas, monospace; text-transform: uppercase;
+           letter-spacing: 0.06em; opacity: 0.55; }
+  iframe { display: block; width: 100%; height: 420px; border: 0; background: #fff; }
+  @media (max-width: 820px) { .grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<h1>Remember — component library</h1>
+<p class="lede">Every preview links to the live <code>/styles.css</code>, so restyling the app
+restyles these cards too. Nothing here needs regenerating after a redesign.</p>
+
+<div class="grid" id="grid"></div>
+
+<script>
+  const CARDS = [
+    { group: 'Type',       name: 'Type scale',      file: 'type.html' },
+    { group: 'Colors',     name: 'Semantic colour', file: 'colour.html' },
+    { group: 'Components', name: 'Note row',        file: 'note-row.html' },
+    { group: 'Components', name: 'Buttons',         file: 'buttons.html' },
+    { group: 'Components', name: 'Form fields',     file: 'form-fields.html' },
+    { group: 'Components', name: 'Navigation',      file: 'navigation.html' },
+    { group: 'Components', name: 'Panels',          file: 'panels.html' },
+    { group: 'Components', name: 'Feedback',        file: 'feedback.html' },
+  ];
+
+  document.getElementById('grid').append(...CARDS.map((card) => {
+    const figure = document.createElement('figure');
+
+    const caption = document.createElement('figcaption');
+    const link = document.createElement('a');
+    link.href = card.file;
+    link.textContent = card.name;
+    const group = document.createElement('span');
+    group.className = 'group';
+    group.textContent = card.group;
+    caption.append(link, group);
+
+    const frame = document.createElement('iframe');
+    frame.src = card.file;
+    frame.title = card.name;
+    // Same origin, so the frame can be sized to its content and nothing clips.
+    frame.addEventListener('load', () => {
+      const fit = () => {
+        const doc = frame.contentDocument;
+        if (!doc?.body) return;
+        // Collapse first: documentElement.scrollHeight never reports less than
+        // the frame's own viewport, so measuring it only ever ratchets upward.
+        frame.style.height = '0px';
+        frame.style.height = `${Math.ceil(doc.body.getBoundingClientRect().bottom) + 10}px`;
+      };
+      fit();
+      // Late-loading fonts and images change the height after load fires.
+      setTimeout(fit, 250);
+      frame.contentWindow?.addEventListener('resize', fit);
+    });
+
+    figure.append(caption, frame);
+    return figure;
+  }));
+</script>
+
+</body>
+</html>

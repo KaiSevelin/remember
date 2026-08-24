@@ -114,6 +114,39 @@ without anyone regenerating them. Run `npm run ds:bundle` and sync.
 
 No colours named; it should come out matching. This is the beat that makes the case.
 
+## The banked result — `after-design`
+
+The Organic restyle has already been run and pushed to the **`after-design`** branch, so
+there is a working "after" even if the live generation misbehaves.
+
+```sh
+git checkout after-design -- public/styles.css   # five-second recovery, mid-talk
+git checkout main -- public/styles.css           # back to ugly
+```
+
+Only the stylesheet differs. Reload the browser; no restart needed.
+
+**What it decided, so you can speak to it:**
+
+- **It added a `danger` role.** Organic is a mono scheme — terracotta accent, sage
+  accent-2, and no colour meaning "something is wrong". Remember requires red for
+  overdue notes, so the restyle extended the system with a semantic danger token in
+  Organic's own idiom rather than dropping in a stock red. This is the honest
+  design-system moment of the talk: systems don't cover everything, and extending one
+  deliberately is different from ignoring it.
+- **It added dark mode.** Organic ships light only (`"band": "light"`). The dark variant
+  is derived from Organic's own neutral ramp so the accent stays put. Also an extension,
+  also marked as one in the stylesheet.
+
+Everything else — palette, ramps, Caprasimo over Figtree, the 4.4px spacing steps, radius
+and shadow scales, pill controls, `radius-lg` cards — is Organic's, copied unchanged.
+
+**⚠ Organic pulls Caprasimo and Figtree from Google Fonts over the network.** On venue
+wi-fi that is a real risk: without them the headings fall back to Georgia and a good chunk
+of the visual impact goes with them. Load the app once on the venue connection before you
+present so the fonts are cached, and don't panic if the logo looks plain — nothing else
+breaks.
+
 ## Verifying a redesign
 
 The headless browser checks used while building this live in the scratchpad and exercise

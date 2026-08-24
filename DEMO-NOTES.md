@@ -120,11 +120,16 @@ The Organic restyle has already been run and pushed to the **`after-design`** br
 there is a working "after" even if the live generation misbehaves.
 
 ```sh
-git checkout after-design -- public/styles.css   # five-second recovery, mid-talk
-git checkout main -- public/styles.css           # back to ugly
+git checkout origin/after-design -- public/styles.css   # five-second recovery, mid-talk
+git checkout main -- public/styles.css                  # back to ugly
 ```
 
 Only the stylesheet differs. Reload the browser; no restart needed.
+
+**Use `origin/after-design`, not `after-design`.** A fresh clone only creates a local
+`main` — the other branch exists solely as a remote-tracking ref, so dropping the
+`origin/` prefix fails with *"invalid reference"* on exactly the machine you'd be
+presenting from. Verified against a clean clone.
 
 **What it decided, so you can speak to it:**
 

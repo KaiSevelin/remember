@@ -1,290 +1,444 @@
-body {
-	background-color: #b6f5b6;
-	font-family: "Times New Roman", Times, serif;
-	color: #333;
-	margin: 0px;
-	padding: 8px;
+/* Remember, wearing the Organic design system.
+   Tokens below are Organic's, copied from the design-system project unchanged.
+   Two roles are added because Organic doesn't define them — see "extensions". */
+
+@import url('https://fonts.googleapis.com/css2?family=Caprasimo:wght@400&family=Figtree:wght@400;600;700&display=swap');
+
+:root {
+  --color-bg: #f5ead8;
+  --color-surface: #ebddc5;
+  --color-text: #201e1d;
+  --color-accent: #c67139;
+  --color-accent-2: #7a8a5e;
+  --color-divider: color-mix(in srgb, #201e1d 16%, transparent);
+
+  --color-neutral-100: #f9f4ed;
+  --color-neutral-200: #eee7db;
+  --color-neutral-300: #dcd3c4;
+  --color-neutral-400: #c0b6a5;
+  --color-neutral-500: #a19786;
+  --color-neutral-600: #82796a;
+  --color-neutral-700: #645c50;
+  --color-neutral-800: #474238;
+  --color-neutral-900: #2e2b25;
+
+  --color-accent-100: #fff2eb;
+  --color-accent-200: #ffe1d0;
+  --color-accent-300: #ffc6a5;
+  --color-accent-400: #f6a06b;
+  --color-accent-500: #d67f48;
+  --color-accent-600: #b2622d;
+  --color-accent-700: #8c491a;
+  --color-accent-800: #643312;
+  --color-accent-900: #402310;
+
+  --color-accent-2-100: #f0fae1;
+  --color-accent-2-500: #8fa073;
+  --color-accent-2-800: #3d472b;
+
+  --font-heading: "Caprasimo", Georgia, serif;
+  --font-heading-weight: 400;
+  --font-body: "Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  --space-1: 4.4px;
+  --space-2: 8.8px;
+  --space-3: 13.2px;
+  --space-4: 17.6px;
+  --space-6: 26.4px;
+  --space-8: 35.2px;
+
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 28px;
+
+  --shadow-sm: 0 1px 2px color-mix(in srgb, #2e2b25 14%, transparent);
+  --shadow-md: 0 3px 10px color-mix(in srgb, #2e2b25 16%, transparent);
+  --shadow-lg: 0 12px 32px color-mix(in srgb, #2e2b25 22%, transparent);
+
+  /* ── extensions ────────────────────────────────────────────────────────
+     Organic is a mono scheme: accent (terracotta) and accent-2 (sage), no
+     role for "something is wrong". Remember needs one — an overdue note is
+     red because the product says so, not because red was to hand. Added as
+     a semantic role in Organic's own idiom, warm enough to sit beside the
+     terracotta rather than fight it. */
+  --color-danger-100: #fbe7e1;
+  --color-danger-200: #f6cdc1;
+  --color-danger-500: #c04a30;
+  --color-danger-700: #832a1a;
+
+  /* Organic ships light only. Dark is derived from its neutral ramp so the
+     accent stays put and the family holds. */
+  --shadow-focus: 0 0 0 3px color-mix(in srgb, var(--color-accent) 35%, transparent);
 }
 
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #211f1a;
+    --color-surface: #2b2822;
+    --color-text: #f2ece1;
+    --color-divider: color-mix(in srgb, #f2ece1 18%, transparent);
+    --color-accent: #e08b52;
+    --color-danger-100: #3d211a;
+    --color-danger-200: #5c3025;
+    --color-danger-500: #e07054;
+    --color-danger-700: #ffb9a3;
+    --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.4);
+    --shadow-md: 0 3px 10px rgb(0 0 0 / 0.45);
+    --shadow-lg: 0 12px 32px rgb(0 0 0 / 0.5);
+  }
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+/* Load-bearing: every view swap sets .hidden, and an author `display` rule
+   would otherwise outrank the browser's [hidden] default. */
 [hidden] { display: none !important; }
 
-h1 {
-	font-family: "Comic Sans MS", cursive;
-	font-size: 42px;
-	color: #ff00ff;
-	text-align: center;
-	margin: 5px;
-	text-shadow: 2px 2px 0px #00ffff;
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font: 400 15px/1.55 var(--font-body);
 }
 
-.tagline {
-	font-size: 11px;
-	color: #999900;
-	text-align: center;
-	margin-bottom: 25px;
+h1, p { margin: 0; }
+
+.logo {
+  font-family: var(--font-heading);
+  font-weight: var(--font-heading-weight);
+  letter-spacing: -0.015em;
+  line-height: 1.12;
 }
 
-.card {
-	background-color: #ffffff;
-	border: 4px solid #ff00ff;
-	padding: 12px;
-}
-
-/* login */
-
-.auth {
-	display: grid;
-	padding: 30px 4px 4px 4px;
-}
-
-.auth-card {
-	text-align: center;
-}
+/* ── forms ─────────────────────────────────────────────────────────────── */
 
 label {
-	display: block;
-	font-size: 10px;
-	text-transform: uppercase;
-	font-weight: bold;
-	color: #0000cc;
-	margin-bottom: 1px;
-	text-align: left;
+  display: block;
+  font-size: 12px;
+  margin-bottom: 5px;
+  color: color-mix(in srgb, var(--color-text) 70%, transparent);
 }
 
 input[type="text"], input[type="email"], input[type="password"], input[type="datetime-local"] {
-	width: 100%;
-	padding: 3px;
-	font-family: "Times New Roman", Times, serif;
-	font-size: 17px;
-	border: 2px inset #999;
-	margin-bottom: 14px;
+  width: 100%;
+  min-height: 36px;
+  padding: 6px 14px;
+  font: inherit;
+  font-size: 14px;
+  color: var(--color-text);
+  caret-color: var(--color-accent);
+  background: var(--color-surface);
+  border: 1px solid var(--color-divider);
+  border-radius: 999px;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
 }
+
+input:hover { border-color: color-mix(in srgb, var(--color-text) 45%, transparent); }
+
+input:focus-visible {
+  border-color: var(--color-accent);
+  box-shadow: var(--shadow-focus);
+  outline: none;
+}
+
+/* ── buttons ───────────────────────────────────────────────────────────── */
 
 button {
-	font-family: "Comic Sans MS", cursive;
-	cursor: pointer;
+  font-family: var(--font-heading);
+  font-weight: var(--font-heading-weight);
+  font-size: 14px;
+  line-height: 1.2;
+  cursor: pointer;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
 }
+
+button:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 2px; }
 
 .primary {
-	background-color: #ff00ff;
-	color: #ffff00;
-	border: 3px outset #cc00cc;
-	padding: 4px 30px;
-	font-size: 22px;
-	font-weight: bold;
-	margin-top: 18px;
-	text-shadow: 1px 1px 0px #000000;
+  padding: var(--space-2) calc(var(--space-3) * 1.2);
+  background: var(--color-accent);
+  color: var(--color-bg);
 }
+
+.primary:hover { background: var(--color-accent-600); }
+.primary:active { background: var(--color-accent-700); }
+.primary:disabled { opacity: 0.45; cursor: not-allowed; }
 
 .link {
-	background: none;
-	border: none;
-	color: #ff0000;
-	font-size: 15px;
-	text-decoration: underline;
-	padding: 0px;
+  padding: 2px var(--space-1);
+  background: none;
+  color: var(--color-accent);
+  font-family: var(--font-body);
+  font-weight: 600;
 }
+
+.link:hover { background: color-mix(in srgb, var(--color-accent) 10%, transparent); }
+
+/* ── login view ────────────────────────────────────────────────────────── */
+
+.auth {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: var(--space-4);
+}
+
+.card {
+  background: var(--color-surface);
+  border-radius: calc(var(--radius-lg) * 1.15);
+  box-shadow: var(--shadow-md);
+}
+
+.auth-card {
+  width: min(400px, 100%);
+  padding: var(--space-8) var(--space-6);
+  display: grid;
+  gap: var(--space-1);
+  text-align: left;
+}
+
+.auth-card .logo { font-size: 32px; text-align: center; }
+
+.tagline {
+  margin-bottom: var(--space-6);
+  text-align: center;
+  font-size: 14px;
+  color: color-mix(in srgb, var(--color-text) 60%, transparent);
+}
+
+.auth-card label { margin-top: var(--space-3); }
+.auth-card .primary { margin-top: var(--space-6); width: 100%; }
 
 .switch {
-	font-size: 12px;
-	margin-top: 6px;
-	text-align: center;
-}
-
-.error {
-	color: #ff0000;
-	background-color: #ffff99;
-	border: 2px dotted #ff0000;
-	font-weight: bold;
-	font-size: 13px;
-	padding: 2px;
-	margin: 4px 0px;
-	text-align: center;
+  margin-top: var(--space-3);
+  text-align: center;
+  font-size: 13px;
+  color: color-mix(in srgb, var(--color-text) 60%, transparent);
 }
 
 .test-login {
-	display: block;
-	margin-top: 22px;
-	text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  margin-top: var(--space-6);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--color-divider);
 }
 
 .test-login button {
-	background-color: #cccccc;
-	border: 2px outset #eeeeee;
-	font-size: 11px;
-	padding: 2px 6px;
+  padding: 6px var(--space-3);
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: color-mix(in srgb, var(--color-text) 70%, transparent);
+  background: none;
+  border-color: var(--color-divider);
+}
+
+.test-login button:hover {
+  color: var(--color-text);
+  background: color-mix(in srgb, var(--color-text) 7%, transparent);
 }
 
 .dev-badge {
-	background-color: #ff0000;
-	color: #ffffff;
-	font-size: 9px;
-	font-weight: bold;
-	padding: 1px 3px;
-	font-family: "Comic Sans MS", cursive;
+  padding: 3px 10px;
+  border-radius: calc(var(--radius-md) * 0.75);
+  background: var(--color-accent-100);
+  color: var(--color-accent-800);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
 }
 
-/* app shell */
+/* ── app shell ─────────────────────────────────────────────────────────── */
 
 .topbar {
-	background-color: #00ffff;
-	border-bottom: 5px ridge #ff00ff;
-	padding: 2px;
-	text-align: center;
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+  padding: var(--space-3) var(--space-4);
+  background: var(--color-surface);
 }
 
-.topbar h1 {
-	font-size: 26px;
-	display: inline-block;
-	margin-right: 20px;
-}
+.topbar .logo { font-size: 18px; margin-right: auto; }
 
-.tabs {
-	display: inline-block;
-}
+.tabs { display: flex; gap: var(--space-1); }
 
 .tab {
-	background-color: #dddddd;
-	border: 2px outset #ffffff;
-	font-size: 14px;
-	padding: 2px 8px;
-	color: #000099;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px var(--space-3);
+  background: none;
+  font-family: var(--font-body);
+  font-weight: 600;
+  color: color-mix(in srgb, var(--color-text) 65%, transparent);
 }
 
-.tab.active {
-	background-color: #ffff00;
-	border: 2px inset #cccc00;
-	font-weight: bold;
-}
+.tab:hover { background: color-mix(in srgb, var(--color-text) 7%, transparent); color: var(--color-text); }
+.tab.active { background: var(--color-accent); color: var(--color-bg); }
 
 .badge {
-	display: inline-block;
-	background-color: #ff0000;
-	color: #ffffff;
-	font-size: 11px;
-	padding: 0px 3px;
-	border: 1px solid #000000;
+  display: inline-block;
+  min-width: 20px;
+  padding: 1px 7px;
+  border-radius: 999px;
+  background: var(--color-danger-500);
+  color: #fff;
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 700;
+  text-align: center;
 }
 
+.tab.active .badge { background: var(--color-bg); color: var(--color-danger-700); }
+
 .account {
-	display: inline-block;
-	font-size: 12px;
-	color: #660066;
-	margin-left: 15px;
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: 13px;
+  color: color-mix(in srgb, var(--color-text) 60%, transparent);
 }
 
 main {
-	padding: 6px;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: var(--space-6) var(--space-4);
 }
 
 .hint {
-	font-size: 12px;
-	font-style: italic;
-	color: #008800;
-	text-align: center;
-	margin-bottom: 4px;
+  margin-bottom: var(--space-4);
+  font-size: 13px;
+  color: color-mix(in srgb, var(--color-text) 60%, transparent);
 }
 
 .empty {
-	text-align: center;
-	font-size: 20px;
-	color: #aaaaaa;
-	font-family: "Comic Sans MS", cursive;
-	padding: 8px;
+  padding: var(--space-8) var(--space-4);
+  text-align: center;
+  color: color-mix(in srgb, var(--color-text) 50%, transparent);
 }
 
-/* add-note form */
+/* ── add-note form ─────────────────────────────────────────────────────── */
 
 .note-form {
-	background-color: #ffffcc;
-	border: 4px solid #ff00ff;
-	padding: 6px;
-	margin-bottom: 20px;
-	text-align: center;
+  display: flex;
+  gap: var(--space-3);
+  align-items: flex-end;
+  flex-wrap: wrap;
+  padding: var(--space-4);
+  margin-bottom: var(--space-6);
 }
 
-.field {
-	margin-bottom: 2px;
-}
+.field { flex: 0 0 auto; }
+.field.grow { flex: 1 1 220px; }
 
-/* notes */
+/* ── notes ─────────────────────────────────────────────────────────────── */
 
 .notes {
-	list-style-type: square;
-	margin: 0px;
-	padding-left: 30px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: var(--space-2);
 }
 
 .note {
-	background-color: #ffffff;
-	border: 3px dashed #00cccc;
-	padding: 3px;
-	margin-bottom: 9px;
-	overflow: hidden;
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  background: var(--color-surface);
+  border-left: 4px solid transparent;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow 0.15s ease;
 }
+
+.note:hover { box-shadow: var(--shadow-md); }
 
 .note input[type="checkbox"] {
-	float: left;
-	margin-right: 10px;
-	margin-top: 6px;
+  width: 18px;
+  height: 18px;
+  flex: none;
+  accent-color: var(--color-accent);
+  cursor: pointer;
 }
 
-.note-main {
-	display: inline;
-}
+.note-main { display: grid; gap: 2px; min-width: 0; flex: 1; }
 
 .note-text {
-	font-size: 19px;
-	font-weight: bold;
-	color: #000066;
-	margin-right: 8px;
+  font-weight: 600;
+  overflow-wrap: anywhere;
 }
 
 .note-meta {
-	font-size: 11px;
-	color: #888888;
-	font-style: italic;
+  font-size: 11px;
+  color: color-mix(in srgb, var(--color-text) 55%, transparent);
 }
 
 .note-right {
-	float: right;
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex: none;
 }
 
 .relative {
-	font-size: 13px;
-	color: #cc6600;
-	font-weight: bold;
-	margin-right: 6px;
+  font-size: 12px;
+  white-space: nowrap;
+  color: color-mix(in srgb, var(--color-text) 55%, transparent);
 }
 
 .delete {
-	background-color: #ff0000;
-	color: #ffffff;
-	border: 2px outset #cc0000;
-	font-size: 13px;
-	font-weight: bold;
-	padding: 0px 5px;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  background: none;
+  font-family: var(--font-body);
+  color: color-mix(in srgb, var(--color-text) 45%, transparent);
 }
 
+.delete:hover { background: var(--color-danger-100); color: var(--color-danger-700); }
+
+/* Overdue and not done. Red is the product rule; the token is the system's
+   answer to it. */
 .note.alarmed {
-	background-color: #ff0000;
-	border: 3px solid #000000;
+  background: var(--color-danger-100);
+  border-left-color: var(--color-danger-500);
 }
 
-.note.alarmed .note-text {
-	color: #ffff00;
-	text-shadow: 1px 1px 0px #000000;
-}
-
+.note.alarmed .note-text { color: var(--color-danger-700); }
 .note.alarmed .note-meta, .note.alarmed .relative {
-	color: #ffffff;
+  color: color-mix(in srgb, var(--color-danger-700) 80%, transparent);
 }
 
-.note.done {
-	background-color: #eeeeee;
+.note.done { opacity: 0.6; }
+.note.done .note-text { text-decoration: line-through; font-weight: 400; }
+
+/* ── feedback ──────────────────────────────────────────────────────────── */
+
+.error {
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-md);
+  background: var(--color-danger-100);
+  border: 1px solid var(--color-danger-200);
+  color: var(--color-danger-700);
+  font-size: 13px;
 }
 
-.note.done .note-text {
-	text-decoration: line-through;
-	color: #999999;
+.note-form .error { flex-basis: 100%; }
+
+/* ── narrow screens ────────────────────────────────────────────────────── */
+
+@media (max-width: 560px) {
+  .topbar { padding: var(--space-2) var(--space-3); }
+  .account { width: 100%; margin-left: 0; }
+  main { padding: var(--space-4) var(--space-3); }
+  .note-form .field, .note-form .primary { width: 100%; }
+  .auth-card { padding: var(--space-6) var(--space-4); }
 }
